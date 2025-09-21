@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 设置页面在移动设备上的显示效果 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软工集市 - 登录</title>
+    <!-- 这里留给CSS开发者引入样式文件或编写样式代码 -->
+</head>
+
+<body>
+    <!-- 
+        登录页面容器
+        包含整个登录页面的所有元素
+        方便CSS开发者统一控制页面布局
+    -->
+    <div id="login-page">
+        <!-- 
+            网站Logo区域
+            显示"软工集市"文字标识
+        -->
+        <div class="logo-container">
+            <h1>软工集市</h1>
+        </div>
+
+        <!-- 
+            登录表单区域
+            使用<form>标签包裹，便于后续表单提交处理
+        -->
+        <form id="login-form">
+            <!-- 账号输入框组 -->
+            <div class="form-group">
+                <!-- 标签用于说明输入框用途，点击标签会聚焦到对应输入框 -->
+                <label for="login-username">账号</label>
+                <!-- 
+                    type="text" 表示文本输入
+                    id与label的for属性对应
+                    placeholder显示提示文字
+                    required表示该字段为必填项
+                -->
+                <input 
+                    type="text" 
+                    id="login-username" 
+                    name="username" 
+                    placeholder="请输入账号" 
+                    required
+                >
+            </div>
+
+            <!-- 密码输入框组 -->
+            <div class="form-group">
+                <label for="login-password">密码</label>
+                <!-- type="password" 表示输入内容会被隐藏 -->
+                <input 
+                    type="password" 
+                    id="login-password" 
+                    name="password" 
+                    placeholder="请输入密码" 
+                    required
+                >
+            </div>
+
+            <!-- 登录按钮 -->
+            <div class="form-button">
+                <button type="submit">登录</button>
+            </div>
+        </form>
+
+        <!-- 注册链接区域 -->
+        <div class="register-link">
+            <p>还没有账号？<a href="#register-page">点击注册</a></p>
+        </div>
+    </div>
+
+    <!-- 
+        注册页面容器
+        默认可以隐藏，通过注册链接显示
+        id="register-page" 便于CSS定位和JavaScript控制显示
+    -->
+    <div id="register-page">
+        <!-- 注册表单标题 -->
+        <div class="register-title">
+            <h2>账号注册</h2>
+        </div>
+
+        <!-- 注册表单 -->
+        <form id="register-form">
+            <!-- 账号/邮箱输入框组 -->
+            <div class="form-group">
+                <label for="register-username">账号/邮箱</label>
+                <!-- 
+                    type="email" 会自动验证输入格式是否符合邮箱规则
+                    为后续可能的邮箱关联做准备
+                -->
+                <input 
+                    type="email" 
+                    id="register-username" 
+                    name="registerUsername" 
+                    placeholder="请输入账号或邮箱" 
+                    required
+                >
+                <!-- 辅助提示文字 -->
+                <small>请使用有效的邮箱地址，便于后续找回密码</small>
+            </div>
+
+            <!-- 密码输入框组 -->
+            <div class="form-group">
+                <label for="register-password">设置密码</label>
+                <input 
+                    type="password" 
+                    id="register-password" 
+                    name="registerPassword" 
+                    placeholder="请设置密码（至少6位）" 
+                    required
+                    minlength="6"  
+                >
+            </div>
+
+            <!-- 确认密码输入框组 -->
+            <div class="form-group">
+                <label for="confirm-password">确认密码</label>
+                <input 
+                    type="password" 
+                    id="confirm-password" 
+                    name="confirmPassword" 
+                    placeholder="请再次输入密码" 
+                    required
+                    minlength="6"
+                >
+                <small>两次输入的密码必须一致</small>
+            </div>
+
+            <!-- 注册按钮 -->
+            <div class="form-button">
+                <button type="submit">注册</button>
+            </div>
+        </form>
+
+        <!-- 返回登录链接 -->
+        <div class="login-link">
+            <p>已有账号？<a href="#login-page">返回登录</a></p>
+        </div>
+    </div>
+
+    <!-- 页面底部信息 -->
+    <footer>
+        <p>© 2024 软工集市 版权所有</p>
+    </footer>
+
+    <!-- 这里可以留给JavaScript开发者编写交互逻辑 -->
+</body>
+</html>
