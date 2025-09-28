@@ -39,5 +39,16 @@ const handleLoginSuccess = (user) => {
 #app {
   height: 100vh; /* 占满整个视口高度 */
   overflow: auto; /* 允许内容溢出时滚动 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+footer {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+    color: #999;
+    font-size: 0.875rem;
 }
 </style>

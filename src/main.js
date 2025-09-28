@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-
+import'./style/global.css'
 import App from './App.vue'
 import router from './router'
 import { worker } from './mock/browser';

@@ -1,6 +1,7 @@
 <script setup>
 import tarnishedImg from '@/assets/image/cat.jpg';
 console.log('本地图片的最终路径：', tarnishedImg);
+alert("欢迎！")
 </script>
 <template>
   <div 

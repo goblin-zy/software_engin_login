@@ -18,10 +18,4 @@ export default defineConfig({
     }
   },
   base:'/road_of_Tarnished/', // 设置基础路径为相对路径，确保在不同环境下资源路径正确
-
-    server: {
-    port: 5173, // 固定端口为 5173，避免每次启动变端口
-    open: true // 启动后自动打开浏览器，方便验证
-  }
-  
 })
