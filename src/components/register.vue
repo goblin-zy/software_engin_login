@@ -125,7 +125,7 @@ const switchToLogin = () => {
 <div  class="login-link">
     <p>已有账号？ <router-link :to="{ name: 'Index' }">返回登录</router-link></p>
 </div>
-</div>
+</div> 
 </form>
   </div>
   </template>

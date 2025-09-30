@@ -9,11 +9,15 @@ const handleLoginSuccess = (user) => {
     console.error('路由跳转失败：', err); // 捕获并打印错误
   }
 };
+console.log('🔧 环境配置:', {
+  mode: import.meta.env.MODE,
+  apiUrl: import.meta.env.VITE_API_BASE_URL,
+  isMock: import.meta.env.VITE_ENABLE_MOCK === 'true'
+})
 </script>
 
 <template>
   <div id="app">
-    
     <!-- 路由出口：动态显示匹配的组件 -->
     <router-view @login-success="handleLoginSuccess"></router-view>
     <footer>

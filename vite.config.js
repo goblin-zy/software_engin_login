@@ -1,21 +1,47 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'; // 引入 Node.js 内置的 path 模块
-// https://vite.dev/config/
-export default defineConfig({
-  build:{
-    rollipupOptions:{
-      input:{
-        index:path.resolve(__dirname, '/index.html'),
-        register:path.resolve(__dirname, '/register.html'), 
+import path from 'path'
 
-  },}},
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      // 确保有这行配置：@ 指向 src 目录
-      '@': path.resolve(__dirname, './src')  
+export default defineConfig(({ command, mode }) => {
+  // 加载环境变量
+  const env = loadEnv(mode, process.cwd(), '')
+  
+  console.log('🎯 当前环境:', mode)
+  console.log('🔧 API地址:', env.VITE_API_BASE_URL)
+  
+  return {
+    build: {
+      rollupOptions: {
+        input: {
+          index: path.resolve(__dirname, '/index.html'),
+          register: path.resolve(__dirname, '/register.html'), 
+        },
+      },
+    },
+    plugins: [vue()],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src')  
+      }
+    },
+    base: '/road_of_Tarnished/',
+    
+    // 开发服务器配置
+    server: {
+      port: 5173,
+      proxy: {
+        // 开发环境代理，解决CORS问题
+        '/api': {
+          target: env.VITE_API_BASE_URL || 'http://localhost:8080',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '/api')
+        }
+      }
+    },
+    
+    // 环境变量定义
+    define: {
+      __APP_ENV__: JSON.stringify(env.APP_ENV),
     }
-  },
-  base:'/road_of_Tarnished/', // 设置基础路径为相对路径，确保在不同环境下资源路径正确
+  }
 })
